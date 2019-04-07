@@ -1,9 +1,7 @@
-package model;
+package producer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class Country {

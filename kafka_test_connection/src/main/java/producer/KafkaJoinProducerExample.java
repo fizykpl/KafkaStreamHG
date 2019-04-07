@@ -1,6 +1,8 @@
+package producer;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.Country;
-import model.Order;
+import producer.model.Country;
+import producer.model.Order;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
@@ -10,10 +12,7 @@ import org.apache.kafka.streams.kstream.*;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Properties;
-
-import static sun.nio.cs.Surrogate.MIN;
 
 public class KafkaJoinProducerExample {
 
@@ -35,22 +34,8 @@ public class KafkaJoinProducerExample {
          * Read topics
          */
 
-//        KStream<String, String> logins = builder.stream(KafkaProducers.TOPIC_LOGINS);
         KStream<String, String> buys = builder.stream(KafkaProducers.TOPIC_BUYS);
         ObjectMapper mapper = new ObjectMapper();
-
-
-        /**
-         * Some tests
-         */
-//        KStream<String, String> userCountry = logins
-//                .mapValues(v -> parseCountry(mapper, v).country);
-//        userCountry.to(TOPIC_GROUP_BUYS);
-//
-//        KStream<String, String> orderAmount = buys
-//                .mapValues(v -> ""+parseOrder(mapper, v).amount);
-//        orderAmount.to(TOPIC_GROUP_BUYS, Produced.with(Serdes.String(), Serdes.String()));
-
 
         /**
          * JOIN
@@ -68,9 +53,6 @@ public class KafkaJoinProducerExample {
         /**
          * GROUP
          */
-
-
-
         KStream<String, String> group =
                 countryAmount
                 .groupByKey()
@@ -80,7 +62,6 @@ public class KafkaJoinProducerExample {
                 ;
 
         group.to(TOPIC_GROUP_BUYS, Produced.with(Serdes.String(), Serdes.String()));
-
 
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
         streams.start();

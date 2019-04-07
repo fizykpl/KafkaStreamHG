@@ -1,4 +1,4 @@
-package model;
+package producer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,6 +11,15 @@ public class Order {
     public String orderId;
     @JsonProperty("amount")
     public int amount;
+
+    public Order(String orderId, int amount) {
+        this.orderId = orderId;
+        this.amount = amount;
+    }
+
+    public Order() {
+
+    }
 
     @Override
     public boolean equals(Object o) {
