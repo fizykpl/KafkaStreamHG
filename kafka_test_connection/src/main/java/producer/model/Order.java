@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
 public class Order {
-    private static final String SEPARATOR = ";";
-
     @JsonProperty("orderId")
     public String orderId;
     @JsonProperty("amount")
@@ -17,9 +15,7 @@ public class Order {
         this.amount = amount;
     }
 
-    public Order() {
-
-    }
+    public Order() {}
 
     @Override
     public boolean equals(Object o) {

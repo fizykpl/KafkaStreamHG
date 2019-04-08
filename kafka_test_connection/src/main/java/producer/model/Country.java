@@ -27,12 +27,4 @@ public class Country {
                 "country=" + country +
                 '}';
     }
-
-//        public static void main(String[] args) throws IOException {
-//        String jsonString = "{\"country\": \"PL\"}";
-//        ObjectMapper mapper = new ObjectMapper();
-//        Country country = mapper.readValue(jsonString, Country.class);
-//        System.out.println(country);
-//    }
-
 }

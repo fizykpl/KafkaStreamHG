@@ -31,13 +31,4 @@ public class User {
                 "userId=" + userId +
                 '}';
     }
-
-
-
-//    public static void main(String[] args) throws IOException {
-//        String jsonString = "{\"userId\": 1}";
-//        ObjectMapper mapper = new ObjectMapper();
-//        User user = mapper.readValue(jsonString, User.class);
-//        System.out.println(user.);
-//    }
 }

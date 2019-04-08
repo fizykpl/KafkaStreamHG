@@ -22,7 +22,7 @@ public class Controller {
     }
 
     @PostMapping("/produce/buy")
-    public String greeting(
+    public String produceBuy(
             @RequestParam(value="userId") String userid
             , @RequestParam(value="orderId") String orderId
             , @RequestParam(value="amount") int amount)  {
@@ -42,7 +42,7 @@ public class Controller {
     }
 
     @PostMapping("/produce/login")
-    public String greeting(
+    public String produceLogin(
             @RequestParam(value="userId") String userid
             , @RequestParam(value="country") String country)  {
 
